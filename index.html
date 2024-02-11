@@ -72,10 +72,18 @@
 		</script>
 
 		<script type="text/javascript">
-		  document.addEventListener('DOMContentLoaded', function() {
-	      var URL = "https://docs.google.com/spreadsheets/d/1iOnDd9Ia075iKYtcY3eVoNXpi9ZPNkb4b2C4iGQUlog/edit"
-	      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
-	    })
+		  document.addEventListener('DOMContentLoaded', 
+					    
+	      function init() {
+          Papa.parse('https://docs.google.com/spreadsheets/d/1Ho7LhsXsPBLvIjT5pL_NQoUYw1fpkkdySsx6oeLEwb4/edit, {
+          download: true,
+          header: true,
+          complete: function(results) {
+            var data = results.data
+            console.log(data)
+          }
+        })
+window.addEventListener('DOMContentLoaded', init)
 		</script>
 	</body>
 </html>

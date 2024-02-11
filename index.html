@@ -75,7 +75,7 @@
 		  document.addEventListener('DOMContentLoaded', 
 					    
 	      function init() {
-          Papa.parse('https://docs.google.com/spreadsheets/d/1Ho7LhsXsPBLvIjT5pL_NQoUYw1fpkkdySsx6oeLEwb4/edit, {
+          Papa.parse('https://docs.google.com/spreadsheets/d/10fF3KqXQt0NZnUQNTcEgSbSILt3LuYO3guG5L7jAUMo/edit, {
           download: true,
           header: true,
           complete: function(results) {
@@ -85,5 +85,23 @@
         })
 window.addEventListener('DOMContentLoaded', init)
 		</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/10fF3KqXQt0NZnUQNTcEgSbSILt3LuYO3guG5L7jAUMo/edit';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    alert('Successfully processed!')
+    console.log(data);
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+</script>
 	</body>
 </html>
